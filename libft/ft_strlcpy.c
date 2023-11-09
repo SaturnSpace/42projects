@@ -6,7 +6,7 @@
 /*   By: acarpent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:37:29 by acarpent          #+#    #+#             */
-/*   Updated: 2023/11/09 12:45:13 by acarpent         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:21:17 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,15 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
+	size_t	lensrc;
 
-	i = 0;
-	while (src[i])
-		i++;
-	if (dstsize > 0)
+	lensrc = ft_strlen(src);
+	if ((lensrc + 1) < dstsize)
+		ft_memcpy(dst, src, lensrc + 1);
+	else if (dstsize != 0)
 	{
-		size_t j = 0;
-		while (j < dstsize - 1 && src[j])
-		{
-			dst[j] = src[j];
-			j++;
-		}
-		dst[j] = '\0';
+		ft_memcpy(dst, src, dstsize - 1);
+		dst[dstsize - 1] = 0;
 	}
-	return (dstsize);
+	return (lensrc);
 }

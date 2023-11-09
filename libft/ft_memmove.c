@@ -6,7 +6,7 @@
 /*   By: acarpent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:45:24 by acarpent          #+#    #+#             */
-/*   Updated: 2023/11/09 16:07:33 by acarpent         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:10:33 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 			tmpdst[i] = tmpsrc[i];
 			i++;
 		}
-
 	}
 	return (dst);
 }

@@ -6,16 +6,16 @@
 /*   By: acarpent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:10:02 by acarpent          #+#    #+#             */
-/*   Updated: 2023/11/09 14:20:36 by acarpent         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:11:31 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*s;
-	size_t	i;
+	size_t			i;
 
 	s = (unsigned char *)b;
 	i = 0;
