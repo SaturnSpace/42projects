@@ -1,48 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarpent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 14:10:02 by acarpent          #+#    #+#             */
-/*   Updated: 2023/11/09 14:20:36 by acarpent         ###   ########.fr       */
+/*   Created: 2023/11/09 13:39:38 by acarpent          #+#    #+#             */
+/*   Updated: 2023/11/09 13:56:48 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void    *ft_memset(void *b, int c, size_t len)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	unsigned char	*s;
 	size_t	i;
+	size_t	j;
 
-	s = (unsigned char *)b;
 	i = 0;
-	while (len > 0)
-	{
-		s[i] = (unsigned char)c;
+	j = 0;
+	while (src[i])
 		i++;
-		len--;
+	while (dst[j])
+		j++;
+	if (src == dst)
+		return (i + j);
+	if (dstsize > (i + j))
+	{
+		
 	}
-	return (b);
+	else
+	{
+	
+	}
+	return (i + j)
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char str[] = "Bonjour";
-	
-	printf("Avant modification : %s\n", str);
-
-	ft_memset(str, '_', 3);
-
-	printf("Apres modification : %s\n", str);
-
-	memset(str, '_', 3);
-
-	printf("Man fonction : %s\n", str);
-	
-	return (0);
-}*/

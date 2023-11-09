@@ -6,7 +6,7 @@
 /*   By: acarpent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:17:04 by acarpent          #+#    #+#             */
-/*   Updated: 2023/11/08 15:30:27 by acarpent         ###   ########.fr       */
+/*   Updated: 2023/11/09 15:28:58 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,41 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	*tmpdst;
-	char	*tmpsrc;
+	unsigned char		*tmpdst;
+	const unsigned char	*tmpsrc;
+	size_t				i;
 
 	if (dst == NULL || src == NULL)
 		return (dst);
-	*tmpdst = (unsigned char *)dst;
-	*tmpsrc = (unsigned char *)src;
-	while (tmpdst != n)
+	tmpdst = (unsigned char *)dst;
+	tmpsrc = (const unsigned char *)src;
+	i = 0;
+	while (i < n)
 	{
 		tmpdst[i] = tmpsrc[i];
 		i++;
-		n--;
 	}
 	return (dst);
 }
+/*
+#include <stdio.h>
+
+int     main(void)
+{
+        char src[] = "Bonjour";
+	char dst[] = "oui";
+
+        printf("Avant modification : %s\n", src);
+	printf("Avant modification : %s\n", dst);
+
+        ft_memcpy(dst, src, 5);
+
+	printf("Apres modification : %s\n", dst);
+
+        memcpy(dst, src, 5);
+
+	printf("Man fonction : %s\n", dst);
+
+        return (0);
+}
+*/
