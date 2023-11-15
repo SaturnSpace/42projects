@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarpent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 13:39:38 by acarpent          #+#    #+#             */
-/*   Updated: 2023/11/15 12:19:18 by acarpent         ###   ########.fr       */
+/*   Created: 2023/11/13 14:00:20 by acarpent          #+#    #+#             */
+/*   Updated: 2023/11/13 15:27:24 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+int	ft_atoi(const char *str)
 {
-	size_t	j;
 	size_t	i;
+	size_t	min;
+	size_t	result;
 
-	if (!size)
-		return (ft_strlen(src));
-	if (size <= ft_strlen(dst))
-		return (size + ft_strlen(src));
-	i = ft_strlen(dst);
-	j = 0;
-	while (src[j] && i + 1 < size)
-	{
-		dst[i] = src[j];
+	i = 0;
+	min = 1;
+	result = 0;
+	while (str[i] >= 9 && str[i] <= 13)
 		i++;
-		j++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			min *= -1;
+		i++;
 	}
-	dst[i] = '\0';
-	return (ft_strlen(dst) + ft_strlen(&src[j]));
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result *= 10;
+		result += str[i] - 48;
+		i++;
+	}
+	return (result *= min);	
 }
