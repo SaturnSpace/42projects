@@ -6,11 +6,16 @@
 /*   By: acarpent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 13:54:15 by acarpent          #+#    #+#             */
-/*   Updated: 2023/11/16 15:56:41 by acarpent         ###   ########.fr       */
+/*   Updated: 2023/11/17 12:25:50 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int count_words(const char *str, char c);
+char *fill_word(const char *str, int start, int end);
+void *ft_free(char **strs, int count);
+void ft_initiate_vars(size_t *i, int *j, int *s_word);
 
 char	**ft_split(char const *s, char c)
 {
@@ -19,10 +24,8 @@ char	**ft_split(char const *s, char c)
 	int	j;
 	int	s_word;
 
-	i = 0;
-	j = 0;
-	s_word = -1;
-	res = ft_calloc((word_count(s, c) + 1), sizeof(char *));
+	ft_initiate_vars(&i, &j, &s_word);
+	res = ft_calloc((count_words(s, c) + 1), sizeof(char *));
 	if (!res)
 		return (NULL);
 	while (i <= ft_strlen(s))
@@ -31,7 +34,7 @@ char	**ft_split(char const *s, char c)
 			s_word = i;
 		else if ((s[i] == c || i == ft_strlen(s)) && s_word >= 0)
 		{
-			res[j] = fill_words(s, s_word, i);
+			res[j] = fill_word(s, s_word, i);
 			if (!(res[j]))
 				return (ft_free(res, j));
 			s_word = -1;
@@ -40,6 +43,13 @@ char	**ft_split(char const *s, char c)
 		i++;
 	}
 	return (res);
+}
+
+void ft_initiate_vars(size_t *i, int *j, int *s_word)
+{
+	    *i = 0;
+	    *j = 0;
+	    *s_word = -1;
 }
 
 int	count_words(char const *str, char c)
@@ -63,7 +73,7 @@ int	count_words(char const *str, char c)
 	return (count);
 }
 
-void	ft_free(char **strs, int count)
+void	*ft_free(char **strs, int count)
 {
 	int	i;
 
