@@ -6,7 +6,7 @@
 /*   By: acarpent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:56:26 by acarpent          #+#    #+#             */
-/*   Updated: 2023/11/13 12:14:14 by acarpent         ###   ########.fr       */
+/*   Updated: 2023/11/16 14:50:28 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*str;
 	unsigned char	cc;
-	size_t	i;
+	size_t			i;
 
 	str = (unsigned char *) s;
 	cc = (unsigned char) c;

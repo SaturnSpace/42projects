@@ -6,7 +6,7 @@
 /*   By: acarpent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 11:50:15 by acarpent          #+#    #+#             */
-/*   Updated: 2023/11/11 11:54:28 by acarpent         ###   ########.fr       */
+/*   Updated: 2023/11/16 14:53:55 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	unsigned int i;
-    	char	*res;
-    	char	cc;
+	unsigned int	i;
+	char			*res;
+	char			cc;
 
 	cc = (char) c;
 	res = NULL;

@@ -6,7 +6,7 @@
 /*   By: acarpent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:00:20 by acarpent          #+#    #+#             */
-/*   Updated: 2023/11/13 15:27:24 by acarpent         ###   ########.fr       */
+/*   Updated: 2023/11/16 14:49:21 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ int	ft_atoi(const char *str)
 		result += str[i] - 48;
 		i++;
 	}
-	return (result *= min);	
+	return (result *= min);
 }
