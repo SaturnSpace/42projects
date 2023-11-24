@@ -6,7 +6,7 @@
 /*   By: acarpent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:10:04 by acarpent          #+#    #+#             */
-/*   Updated: 2023/11/17 15:40:26 by acarpent         ###   ########.fr       */
+/*   Updated: 2023/11/18 12:54:09 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_calloc(size_t count, size_t size)
 	if ((int)count < 0 && (int)size < 0)
 		return (NULL);
 	n = count * size;
-	if (count == 0|| size == 0)
+	if (count == 0 || size == 0)
 		return (malloc(0));
 	if (n / count != size)
 		return (NULL);

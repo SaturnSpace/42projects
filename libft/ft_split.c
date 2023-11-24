@@ -12,17 +12,17 @@
 
 #include "libft.h"
 
-int count_words(const char *str, char c);
-char *fill_word(const char *str, int start, int end);
-void *ft_free(char **strs, int count);
-void ft_initiate_vars(size_t *i, int *j, int *s_word);
+int		count_words(const char *str, char c);
+char	*fill_word(const char *str, int start, int end);
+void	*ft_free(char **strs, int count);
+void	ft_initiate_vars(size_t *i, int *j, int *s_word);
 
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
 	size_t	i;
-	int	j;
-	int	s_word;
+	int		j;
+	int		s_word;
 
 	ft_initiate_vars(&i, &j, &s_word);
 	res = ft_calloc((count_words(s, c) + 1), sizeof(char *));
@@ -45,11 +45,11 @@ char	**ft_split(char const *s, char c)
 	return (res);
 }
 
-void ft_initiate_vars(size_t *i, int *j, int *s_word)
+void	ft_initiate_vars(size_t *i, int *j, int *s_word)
 {
-	    *i = 0;
-	    *j = 0;
-	    *s_word = -1;
+	*i = 0;
+	*j = 0;
+	*s_word = -1;
 }
 
 int	count_words(char const *str, char c)
@@ -90,7 +90,7 @@ void	*ft_free(char **strs, int count)
 char	*fill_word(char const *str, int start, int end)
 {
 	char	*word;
-	int	i;
+	int		i;
 
 	i = 0;
 	word = malloc((end - start + 1) * sizeof(char));

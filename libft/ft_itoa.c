@@ -6,7 +6,7 @@
 /*   By: acarpent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:26:46 by acarpent          #+#    #+#             */
-/*   Updated: 2023/11/17 14:36:50 by acarpent         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:25:10 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ char	*pre_conv(int len);
 
 char	*ft_itoa(int n)
 {
-	int	len;
-	int	i;
-	char *result;
+	int		len;
+	int		i;
+	char	*result;
 	long	nbr;
 
 	nbr = n;
@@ -44,10 +44,10 @@ char	*ft_itoa(int n)
 
 char	*pre_conv(int len)
 {
-	char *tmp;
+	char	*tmp;
 
 	tmp = malloc((len + 1) * sizeof(char));
-	if(!tmp)
+	if (!tmp)
 		return (NULL);
 	tmp[0] = '0';
 	return (tmp);
@@ -63,7 +63,7 @@ size_t	numlen(long nbr)
 		num++;
 		nbr = -nbr;
 	}
-	if(nbr == 0)
+	if (nbr == 0)
 		num++;
 	while (nbr != 0)
 	{
