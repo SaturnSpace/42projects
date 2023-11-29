@@ -13,23 +13,7 @@
 #include "libftprintf.h"
 #include "libft.h"
 
-//%p
-int	for_p(args)
+int	for_s(args)
 {
-	
-}
-//%d %i
-int	for_di(args)
-{
-	
-}
-//%u
-int	for_u(args)
-{
-	
-}
-//%x %X
-int	for_xX(args)
-{
-
+	return (ft_putstr(va_arg(args)));
 }
