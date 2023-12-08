@@ -1,1 +1,0 @@
-NAME = "libftprintf.a"
