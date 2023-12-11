@@ -1,37 +1,39 @@
 NAME = libftprintf.a
 
-SRCS = 						ft_printf.c\
-						ft_printchar.c\
-						ft_printstr.c\
-						ft_printptr.c\
-						ft_printint.c\
-						ft_printunsi.c\
-						ft_printhexa.c\
-						ft_putstr_fd\
+SRCS = ft_printf.c\
+        ft_printchar.c\
+        ft_printstr.c\
+        ft_printptr.c\
+        ft_printint.c\
+        ft_printunsi.c\
+        ft_printhexa.c\
+        ft_putstr_fd.c\
 
-OBJS =		${SRCS:.c=.o}
+OBJS = ${SRCS:.c=.o}
 
-HEADER = 	libftprintf.h
+HEADER = libftprintf.h
 
-NAME =		libftprintf.a
+NAME = libftprintf.a
 
-CFLAGS =	-Wall -Wextra -Werror
+CC = cc
 
-all:		${NAME}
+CFLAGS = -Wall -Werror -Wextra
 
-${NAME}:	${OBJS}
+all: ${NAME}
+
+${NAME}: ${OBJS}
 	ar rc ${NAME} ${OBJS}
 
-.c.o:	
-	gcc ${CFLAGS} -c $^ -include ${HEADER}
+%.o:		%.c ${HEADER}
+	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 clean:
 	rm -rf ${OBJS}
 
-fclean:		clean
+fclean:        clean
 	rm -rf ${NAME}
 
-re:		fclean all
+re: fclean all
 
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
