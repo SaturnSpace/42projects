@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbrlen.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 13:40:14 by acarpent          #+#    #+#             */
-/*   Updated: 2023/12/15 18:07:57 by acarpent         ###   ########.fr       */
+/*   Created: 2023/12/15 16:06:54 by acarpent          #+#    #+#             */
+/*   Updated: 2023/12/15 17:11:33 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
+#include "ft_printf.h"
 
-int	ft_putcharlen(char c);
-int	ft_putstrlen(char *s);
-int	ft_printf(const char *format, ...);
-int	ft_putnbrlen(int n);
-int	ft_unsilen(unsigned int n);
-int	ft_hexalen(unsigned long int n, char c);
-int	ft_toupper(int c);
+int	ft_putnbrlen(int n)
+{
+	int len;
 
-#endif
+	len = 0;
+	if (n == -2147483648)
+		return (ft_putstrlen("-2147483648"));
+	if (n < 0)
+	{
+		len += ft_putcharlen('-');
+		n = -n;
+	}
+	if (n > 9)
+		len += ft_putnbrlen(n / 10);
+	return (len += ft_putcharlen((n % 10) + 48));
+}

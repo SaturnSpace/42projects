@@ -3,75 +3,62 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acarpent <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 12:49:40 by acarpent          #+#    #+#             */
-/*   Updated: 2023/12/11 15:52:54 by acarpent         ###   ########.fr       */
+/*   Created: 2023/12/15 13:48:26 by acarpent          #+#    #+#             */
+/*   Updated: 2023/12/15 18:09:00 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-int	ft_check(char c, va_list args)
+int	ft_check(const char	format, va_list arg)
 {
 	int	len;
 
 	len = 0;
-	if (c == 'c')
-		len += ft_printchar(va_arg(args, int));
-	else if (c == 's')
-	{
-		if (va_arg(args, char *) == NULL)
-			return (ft_printstr("(null)"));
-		len += ft_printstr(va_arg(args, char *));
-	}
-	else if (c == 'p')
-		len += ft_printptr((uintptr_t)va_arg(args, void *));
-	else if (c == 'd' || c == 'i')
-		len += ft_printint(va_arg(args, int));
-	else if (c == 'u')
-		len += ft_printunsi(va_arg(args, unsigned int));
-	else if (c == 'x')
-		len += ft_printhexa(va_arg(args, unsigned long int), 1);
-	else if (c == 'X')
-		len += ft_printhexa(va_arg(args, unsigned long int), 2);
+	if (format == 'c')
+		len += ft_putcharlen(va_arg(arg, int));
+	else if (format == 's')
+		len += ft_putstrlen(va_arg(arg, char *));
+	else if (format == 'd' || format == 'i')
+		len += ft_putnbrlen(va_arg(arg, int));
+	else if (format == 'u')
+		len += ft_unsilen(va_arg(arg, unsigned int));
+	else if (format == 'x' || format == 'X')
+		len += ft_hexalen(va_arg(arg, unsigned long int), format);
+	else if (format == '%')
+		len += ft_putcharlen('%');
 	return (len);
 }
 
 int	ft_printf(const char *format, ...)
 {
-	va_list	args;
-	int		i;
-	int	wrote;
+	va_list args;
+	int	i;
+	int	len;
 
+	len = 0;
 	i = 0;
-	wrote = 0;
 	va_start(args, format);
 	if (!format)
-		return (-1);
+		return (0);
 	while (format[i])
 	{
 		if (format[i] == '%')
-		{
-			wrote += ft_check(format[i + 1], args);
-			if (format[i + 1] == '%')
-				wrote += write(1, &format[i], 1);
-			i += 2;
-		}
+			len += ft_check(format[++i], args);
 		else
-		{
-			wrote += write(1, &format[i], 1);
-			i++;
-		}
+			len += ft_putcharlen(format[i]);
+		i++;
 	}
 	va_end(args);
-	return (wrote);
+	printf("%d\n", len);
+	return (len);
 }
-
-#include <stdio.h>
 
 int	main(void)
 {
-	ft_printf("%s\n", "");
-	printf("%s", "");
+	ft_printf("%X\n", -34);
+	printf("%d\n", printf("%X\n", -34));
 }
