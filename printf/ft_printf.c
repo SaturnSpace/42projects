@@ -6,7 +6,7 @@
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:48:26 by acarpent          #+#    #+#             */
-/*   Updated: 2023/12/15 18:09:00 by acarpent         ###   ########.fr       */
+/*   Updated: 2023/12/18 12:10:43 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	ft_printf("%X\n", -34);
-	printf("%d\n", printf("%X\n", -34));
+	ft_printf("%x\n", 9223372036854775807LL);
+	printf("%d\n", printf("%x\n", 9223372036854775807LL));
 }
