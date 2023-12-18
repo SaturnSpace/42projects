@@ -6,13 +6,13 @@
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 17:41:58 by acarpent          #+#    #+#             */
-/*   Updated: 2023/12/18 12:08:45 by acarpent         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:41:00 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_hexalen(unsigned long long n, char c)
+int	ft_hexalen(unsigned long int n, char c)
 {
 	int	len;
 	char	*base;
