@@ -6,14 +6,14 @@
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:48:26 by acarpent          #+#    #+#             */
-/*   Updated: 2023/12/18 14:40:49 by acarpent         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:05:21 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-int	ft_check(const char	format, va_list arg)
+int	ft_check(const char format, va_list arg)
 {
 	int	len;
 
@@ -37,9 +37,9 @@ int	ft_check(const char	format, va_list arg)
 
 int	ft_printf(const char *format, ...)
 {
-	va_list args;
-	int	i;
-	int	len;
+	va_list	args;
+	int		i;
+	int		len;
 
 	len = 0;
 	i = 0;
@@ -55,14 +55,5 @@ int	ft_printf(const char *format, ...)
 		i++;
 	}
 	va_end(args);
-	//printf("%d\n", len);
 	return (len);
 }
-/*
-#include <limits.h>
-
-int	main(void)
-{
-	ft_printf("%p, %p\n", INT_MIN, INT_MAX);
-	printf("%d\n", printf("%p %p\n", 4294967295, -4294967295));
-}*/

@@ -6,7 +6,7 @@
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:06:54 by acarpent          #+#    #+#             */
-/*   Updated: 2023/12/15 17:11:33 by acarpent         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:06:35 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_putnbrlen(int n)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (n == -2147483648)

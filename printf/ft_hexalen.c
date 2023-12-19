@@ -6,7 +6,7 @@
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 17:41:58 by acarpent          #+#    #+#             */
-/*   Updated: 2023/12/18 14:41:00 by acarpent         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:04:22 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_hexalen(unsigned long int n, char c)
 {
-	int	len;
+	int		len;
 	char	*base;
 
 	len = 0;
