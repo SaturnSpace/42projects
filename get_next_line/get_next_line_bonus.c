@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 14:14:12 by acarpent          #+#    #+#             */
-/*   Updated: 2024/01/10 16:40:36 by acarpent         ###   ########.fr       */
+/*   Created: 2024/01/10 15:08:16 by acarpent          #+#    #+#             */
+/*   Updated: 2024/01/10 16:44:40 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_line(char *str)
 {
@@ -102,4 +102,20 @@ char	*get_next_line(int fd)
 	res = ft_line(stash);
 	stash = ft_cleanup(stash);
 	return (res);
+}
+#include <stdio.h>
+int	main(void)
+{
+	int		fd;
+	char	*str;
+
+	fd = open("test.txt", O_RDONLY);
+	str = get_next_line(fd);
+	printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
+	printf("%s", str);
+	free(str);
+	//printf("%s\n", get_next_line(fd));
+	return (0);
 }
