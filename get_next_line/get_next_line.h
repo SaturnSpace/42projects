@@ -6,7 +6,7 @@
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:14:40 by acarpent          #+#    #+#             */
-/*   Updated: 2024/01/10 15:19:50 by acarpent         ###   ########.fr       */
+/*   Updated: 2024/01/11 14:08:06 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ char	*ft_strjoin(char *buffer, char *result);
 char	*ft_cleanup(char *stash);
 void	ft_bzero(void *s, size_t n);
 char	*ft_strdup(char *s1);
+char	*ft_line(char *str);
 
 #endif 

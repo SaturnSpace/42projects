@@ -6,7 +6,7 @@
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:14:37 by acarpent          #+#    #+#             */
-/*   Updated: 2024/01/10 15:33:36 by acarpent         ###   ########.fr       */
+/*   Updated: 2024/01/11 13:22:38 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ int	ft_strlen(char *str)
 	int	i;
 
 	i = 0;
-	if (!str)
-		return (i);
-	while (str[i])
-		i++;
+	if (str)
+	{
+		while (str[i])
+			i++;
+	}
 	return (i);
 }
 
@@ -35,11 +36,11 @@ char	*ft_strjoin(char *buffer, char *stash)
 		stash = malloc(sizeof(char));
 		stash[0] = '\0';
 	}
-	if (!stash && !buffer)
+	if (!stash || !buffer)
 		return (NULL);
 	res = malloc(sizeof(char) * ((ft_strlen(buffer) + ft_strlen(stash)) + 1));
 	if (!res)
-		return (free(res), NULL);
+		return (NULL);
 	j = 0;
 	i = -1;
 	while (stash[++i])
@@ -73,7 +74,7 @@ char	*ft_strdup(char *s1)
 	i = 0;
 	str = malloc(ft_strlen(s1) + 1);
 	if (!str)
-		return (free(str), NULL);
+		return (NULL);
 	while (s1[i])
 	{
 		str[i] = s1[i];
