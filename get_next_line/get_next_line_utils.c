@@ -6,7 +6,7 @@
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:14:37 by acarpent          #+#    #+#             */
-/*   Updated: 2024/01/11 13:22:38 by acarpent         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:15:08 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_strjoin(char *buffer, char *stash)
 		stash[0] = '\0';
 	}
 	if (!stash || !buffer)
-		return (NULL);
+		return (free(stash), NULL);
 	res = malloc(sizeof(char) * ((ft_strlen(buffer) + ft_strlen(stash)) + 1));
 	if (!res)
 		return (NULL);

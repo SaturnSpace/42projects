@@ -6,7 +6,7 @@
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:08:21 by acarpent          #+#    #+#             */
-/*   Updated: 2024/01/11 14:04:37 by acarpent         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:59:32 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define GET_NEXT_LINE_BONUS_H
 
 # include <unistd.h>
-# include <fcntl.h>
 # include <stdlib.h> 
 
 # ifndef BUFFER_SIZE
