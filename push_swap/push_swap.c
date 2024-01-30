@@ -6,7 +6,7 @@
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 15:11:37 by acarpent          #+#    #+#             */
-/*   Updated: 2024/01/29 15:37:59 by acarpent         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:44:47 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,28 @@
 
 // }
 
-void	ft_check(char	**argv)
+int	ft_check(char *argv)
 {
 	int	i;
-	int	j;
-
+	
 	i = 0;
-	j = 0;
-	while (argv[i][j])
+	while (argv[i])
 	{
-		while (argv[i][j] != ' ')
+		if (ft_syntax(argv[i]) == 1)
 		{
-			if ((argv[i][j] <= 48 || argv[i][j] >= 58) || argv[i][j] != '-'
-					|| argv[i][j] != '+')
-			{
-				ft_printf("Error\n");
-				exit(0);
-			}
-			if (argv[i][j + 1] == ' ')
-				ft_lstnew(atoi(&argv[i][j]));
+			printf("Erreur\n");
+			exit(0);
 		}
-		j++;
+		if ((argv[i] == '+' && argv[i + 1] == '+')
+			|| (argv[i] == '-' && argv[i + 1] == '-')
+			|| (argv[i] == ' ' && argv[i + 1] == ' '))
+		{
+			printf("Erreur\n");
+			exit(0);
+		}
+		i++;
 	}
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -49,11 +49,19 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	i = 1;
-	if (argc < 1)
-		return (0);
-	while (i <= argc)
+	if (argc == 1)
 	{
-		ft_check(&argv[i]);
+		printf("Aucun argument fourni.\n");
+		return (0);
+	}
+	while (i < argc)
+	{
+		printf("Verification de l'argument %d : %s\n", i, argv[i]);
+		ft_check(argv[i]);
+		if (ft_check(argv[i]) == 0)
+			ft_lstnew(ft_atoi(argv[i]));
+		if (a)
+			a->next = ft_lstnew(ft_atoi(argv[i]));
 		i++;
 	}
 	return (0);

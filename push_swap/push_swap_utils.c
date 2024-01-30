@@ -6,11 +6,22 @@
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:19:31 by acarpent          #+#    #+#             */
-/*   Updated: 2024/01/29 15:39:32 by acarpent         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:41:21 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_syntax(char c)
+{
+	if (c == '+' || c == '-')
+		return (0);
+	else if (c == ' ')
+		return (0);
+	else if (c >= 48 && c <= 57)
+		return (0);
+	return (1);
+}
 
 t_pile	*ft_lstnew(int content)
 {
