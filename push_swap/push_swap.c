@@ -6,7 +6,7 @@
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 15:11:37 by acarpent          #+#    #+#             */
-/*   Updated: 2024/01/30 15:44:47 by acarpent         ###   ########.fr       */
+/*   Updated: 2024/02/01 13:02:51 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ int	ft_check(char *argv)
 	i = 0;
 	while (argv[i])
 	{
+		if (ft_doublecheck(&argv[i]) == 1)
+		{
+			printf("Erreur\n");
+			exit(0);
+		}
 		if (ft_syntax(argv[i]) == 1)
 		{
 			printf("Erreur\n");
