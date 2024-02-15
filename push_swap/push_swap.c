@@ -6,7 +6,7 @@
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 15:11:37 by acarpent          #+#    #+#             */
-/*   Updated: 2024/02/13 16:43:58 by acarpent         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:34:22 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	push_swap(t_pile *a)
 	b = NULL;
 	while(a)
 	{
-		printf("%d\n", a->data);
+		//printf("%d\n", a->data);
 		a = a->next;
 	}
 }
@@ -45,23 +45,24 @@ int	main(int argc, char **argv)
 			while (temp[j])
 			{
 				ft_check(temp[j]);
-				if (ft_doublecheck(a, ft_atoi(temp[j])) == 1)
+				if (ft_doublecheck(temp) == 1)
 					ft_error(temp[i]);
 				if (a)
 					a->next = ft_lstnew(ft_atoi(temp[j]));
 				a = ft_lstnew(ft_atoi(temp[j]));
-				//push_swap(a);
 				j++;
 			}
 		}
-		else if (ft_check(argv[i]) == 0)
+		if (ft_check(argv[i]) == 0)
 		{
-			if (ft_doublecheck(a, ft_atoi(argv[i])) == 1)
-				ft_error(argv[i]);
+			if (ft_doublecheck(argv + 1) == 1)
+			{
+				printf("Error");
+				exit(0);
+			}
 			if (a)
 				a->next = ft_lstnew(ft_atoi(argv[i]));
 			a = ft_lstnew(ft_atoi(argv[i]));
-			//push_swap(a);
 		}
 		i++;
 		push_swap(a);

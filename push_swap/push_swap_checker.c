@@ -6,7 +6,7 @@
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:38:28 by acarpent          #+#    #+#             */
-/*   Updated: 2024/02/13 16:40:02 by acarpent         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:28:55 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,19 +66,19 @@ void	ft_error(char *str)
 	exit(0);
 }
 
-int	ft_doublecheck(t_pile *a, int nbr)
+int	ft_doublecheck(char **a)
 {
-	t_pile	*temp;
-
-	temp = a;
-	if (!a)
-		return (0);
-	while (temp)
+	int i;
+	 int j;
+	
+	i = 0;
+	while (a[i])
 	{
-		printf("{%d} {%d}\n", temp->data, nbr);
-		if (temp->data == nbr)
-			return (1);
-		temp = temp->next;
+		j = i + 1;
+		while (a[j])
+			if (ft_atoi(a[i]) == ft_atoi(a[j++]))
+				return(1);
+		i++;
 	}
 	return (0);
 }

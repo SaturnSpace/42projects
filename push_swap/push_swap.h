@@ -6,7 +6,7 @@
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:18:53 by acarpent          #+#    #+#             */
-/*   Updated: 2024/02/13 15:44:39 by acarpent         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:23:29 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int		ft_syntax(char c);
 int		ft_splitcheck(char *argv);
 char	**ft_split(char const *s, char c);
 void	ft_error(char *str);
-int		ft_doublecheck(t_pile *a, int nbr);
+int		ft_doublecheck(char **a);
 
 #endif
