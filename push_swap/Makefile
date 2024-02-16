@@ -1,36 +1,55 @@
-NAME = push_swap.a
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/02/16 12:59:08 by acarpent          #+#    #+#              #
+#    Updated: 2024/02/16 14:31:42 by acarpent         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-SRCS = 				push_swap.c\
-					push_swap_utils.c\
-					push_swap_checker.c\
 
-OBJS =          ${SRCS:.c=.o}
+# Définitions de base
+NAME = push_swap
+CC = cc
+CFLAGS = -g -Wall -Wextra -Werror 
+CPPFLAGS = -I./include
+BUILD = ./build
+PRINTF = ./external/ft_printf
+SRC = $(shell find ./src -name '*.c') # A REMPLACER
+OBJ = $(SRC:src/%.c=$(BUILD)/%.o)
 
-HEADER =        push_swap.h
+# Crée le dossier BUILD si nécessaire
+$(shell mkdir -p $(BUILD))
+	
+# Règle principale
+all: 	printf $(NAME)
 
-NAME =          push_swap.a
+# Règle pour compiler printf
+printf:
+	$(MAKE) -C $(PRINTF)
+	
+# Règle pour créer l'exécutable push_swap
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJ) -L$(PRINTF) -lftprintf -o $(NAME)
 
-CFLAGS =        -Wall -Wextra -Werror
+# Règle pour compiler les fichiers .c en .o et les déplacer dans BUILD
+$(BUILD)/%.o: src/%.c
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
-all:            ${NAME}
-
-${NAME}:        ${OBJS}
-	ar rc ${NAME} ${OBJS}
-
-bonus:          ${OBJS_BONUS}
-	ar rc ${NAME} ${OBJS_BONUS}
-
-.c.o:
-	gcc ${CFLAGS} -c $^ -include ${HEADER}
-
+# Règles pour nettoyer les fichiers objets et l'exécutable
 clean:
-	rm -rf ${OBJS} ${OBJS_BONUS}
+	$(MAKE) -C $(PRINTF) clean
+	rm -f $(BUILD)/*.o
 
-fclean:         clean
-	rm -rf ${NAME}
+fclean: clean
+	$(MAKE) -C $(PRINTF) fclean
+	rm -f $(NAME)
 
-re:             fclean all
+# Règle pour recompiler
+re: fclean all
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJ)
+# Pour éviter les conflits avec des fichiers du même nom
+.PHONY: all clean fclean re printf
