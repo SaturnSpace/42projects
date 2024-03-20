@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 15:33:33 by acarpent          #+#    #+#             */
-/*   Updated: 2024/03/20 10:00:06 by acarpent         ###   ########.fr       */
+/*   Created: 2023/11/13 14:00:20 by acarpent          #+#    #+#             */
+/*   Updated: 2024/03/20 13:40:37 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_atoi(const char *str)
 {
-	char	*str;
-	size_t	i;
-	size_t	j;
+	long	i;
+	long	min;
+	long	result;
 
-	if (!s1 && !s2)
-		return (NULL);
-	str = malloc((ft_strlen(s1) + ft_strlen(s2)) + 2);
 	i = 0;
-	j = 0;
-	while (s1[i])
-	{
-		str[j] = s1[i];
+	min = 1;
+	result = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
-		j++;
-	}
-	i = 0;
-	str[j++] = ' ';
-	while (s2[i])
+	if (str[i] == '+' || str[i] == '-')
 	{
-		str[j] = s2[i];
+		if (str[i] == '-')
+			min *= -1;
 		i++;
-		j++;
 	}
-	str[j] = '\0';
-	return (str);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result *= 10;
+		result += str[i] - 48;
+		i++;
+	}
+	return (result *= min);
 }

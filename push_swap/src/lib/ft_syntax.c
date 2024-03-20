@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_syntax.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 15:33:33 by acarpent          #+#    #+#             */
-/*   Updated: 2024/03/20 10:00:06 by acarpent         ###   ########.fr       */
+/*   Created: 2024/03/20 10:04:29 by acarpent          #+#    #+#             */
+/*   Updated: 2024/03/20 11:18:11 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_syntax(char *str)
 {
-	char	*str;
-	size_t	i;
-	size_t	j;
+	int	i;
 
-	if (!s1 && !s2)
-		return (NULL);
-	str = malloc((ft_strlen(s1) + ft_strlen(s2)) + 2);
 	i = 0;
-	j = 0;
-	while (s1[i])
+	printf("%s\n", str);
+	while (str[i])
 	{
-		str[j] = s1[i];
+		if (ft_isdigit(str[i]) == 0)
+		{
+			printf("Syntax error.");
+			exit(0);
+		}
+		if (str[i] == '+' && str[i + 1] == '+')
+		{
+			printf("Syntax error.");
+			exit(0);
+		}
+		if (str[i] == '-' && str[i + 1] == '-')
+		{
+			printf("Syntax error.");
+			exit(0);
+		}
 		i++;
-		j++;
 	}
-	i = 0;
-	str[j++] = ' ';
-	while (s2[i])
-	{
-		str[j] = s2[i];
-		i++;
-		j++;
-	}
-	str[j] = '\0';
-	return (str);
+	return (1);
 }

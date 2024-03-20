@@ -1,42 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_splitcheck.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 15:33:33 by acarpent          #+#    #+#             */
-/*   Updated: 2024/03/20 10:00:06 by acarpent         ###   ########.fr       */
+/*   Created: 2024/03/20 11:25:09 by acarpent          #+#    #+#             */
+/*   Updated: 2024/03/20 14:28:59 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	char	*str;
-	size_t	i;
-	size_t	j;
-
-	if (!s1 && !s2)
-		return (NULL);
-	str = malloc((ft_strlen(s1) + ft_strlen(s2)) + 2);
-	i = 0;
-	j = 0;
-	while (s1[i])
-	{
-		str[j] = s1[i];
-		i++;
-		j++;
-	}
-	i = 0;
-	str[j++] = ' ';
-	while (s2[i])
-	{
-		str[j] = s2[i];
-		i++;
-		j++;
-	}
-	str[j] = '\0';
-	return (str);
-}
