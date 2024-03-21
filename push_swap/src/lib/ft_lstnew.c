@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_syntax.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 10:04:29 by acarpent          #+#    #+#             */
-/*   Updated: 2024/03/21 11:37:15 by acarpent         ###   ########.fr       */
+/*   Created: 2023/11/18 12:09:49 by acarpent          #+#    #+#             */
+/*   Updated: 2024/03/21 11:01:03 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	ft_syntax(char *str)
+t_list	*ft_lstnew(int content)
 {
-	int	i;
+	t_list	*elem;
 
-	i = 0;
-	printf("%s\n", str);
-	while (str[i])
-	{
-		if (ft_isdigit(str[i]) == 0)
-		{
-			printf("Syntax error.");
-			exit(0);
-		}
-		if (str[i] == '+' && str[i + 1] == '+')
-		{
-			printf("Syntax error.");
-			exit(0);
-		}
-		if (str[i] == '-' && str[i + 1] == '-')
-		{
-			printf("Syntax error.");
-			exit(0);
-		}
-		ft_ops(str);
-		i++;
-	}
-	return (1);
+	elem = malloc(sizeof(t_list));
+	if (!elem)
+		return (NULL);
+	elem->data = content;
+	elem->next = NULL;
+	printf("data = %d\n", content);
+	return (elem);
 }

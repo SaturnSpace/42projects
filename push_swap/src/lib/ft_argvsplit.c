@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_syntax.c                                        :+:      :+:    :+:   */
+/*   ft_argvsplit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 10:04:29 by acarpent          #+#    #+#             */
-/*   Updated: 2024/03/21 11:37:15 by acarpent         ###   ########.fr       */
+/*   Created: 2024/03/21 10:38:16 by acarpent          #+#    #+#             */
+/*   Updated: 2024/03/21 10:53:05 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	ft_syntax(char *str)
+char	**ft_argvsplit(int ac, char **av)
 {
-	int	i;
+	int		i;
+	int		j;
+	char	*str;
+	char	**split;
 
 	i = 0;
-	printf("%s\n", str);
-	while (str[i])
+	str = "";
+	while (++i < ac)
+		str = ft_strjoin(str, av[i]);
+	split = ft_split(str, ' ');
+	i = 0;
+	while (split[i])
 	{
-		if (ft_isdigit(str[i]) == 0)
+		ft_syntax(split[i]);
+		j = i + 1;
+		while (split[j] && ft_atoi(split[i]) != ft_atoi(split[j]))
+			j++;
+		if (split[j] != 0 && (ft_atoi(split[i]) == ft_atoi(split[j])))
 		{
-			printf("Syntax error.");
+			printf("Doublons detected.");
 			exit(0);
 		}
-		if (str[i] == '+' && str[i + 1] == '+')
-		{
-			printf("Syntax error.");
-			exit(0);
-		}
-		if (str[i] == '-' && str[i + 1] == '-')
-		{
-			printf("Syntax error.");
-			exit(0);
-		}
-		ft_ops(str);
 		i++;
 	}
-	return (1);
+	return (split);
 }

@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_syntax.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 10:04:29 by acarpent          #+#    #+#             */
-/*   Updated: 2024/03/21 11:37:15 by acarpent         ###   ########.fr       */
+/*   Created: 2024/03/18 15:03:48 by acarpent          #+#    #+#             */
+/*   Updated: 2024/03/21 12:02:15 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "include/push_swap.h"
 
-int	ft_syntax(char *str)
+int	main(int argc, char **argv)
 {
-	int	i;
+	char	**split;
+	// t_list	*a;
+	// int		i;
 
-	i = 0;
-	printf("%s\n", str);
-	while (str[i])
+	// a = NULL;
+	if (argc <= 1)
 	{
-		if (ft_isdigit(str[i]) == 0)
-		{
-			printf("Syntax error.");
-			exit(0);
-		}
-		if (str[i] == '+' && str[i + 1] == '+')
-		{
-			printf("Syntax error.");
-			exit(0);
-		}
-		if (str[i] == '-' && str[i + 1] == '-')
-		{
-			printf("Syntax error.");
-			exit(0);
-		}
-		ft_ops(str);
-		i++;
+		printf("No arguments inserted.\n");
+		exit(0);
 	}
-	return (1);
+	split = ft_argvsplit(argc, argv);
+	// i = 0;
+	// while (split[i])
+	// {
+	// 	if (split[0])
+	// 		a = ft_lstnew(ft_atoi(split[i]));
+	// 	a->next = ft_lstnew(ft_atoi(split[i]));
+	// 	i++;
+	// }
+	return (0);
 }

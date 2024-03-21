@@ -6,7 +6,7 @@
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 15:03:31 by acarpent          #+#    #+#             */
-/*   Updated: 2024/03/20 14:28:55 by acarpent         ###   ########.fr       */
+/*   Updated: 2024/03/21 11:58:04 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 //                            INCLUDES                                        */
 //----------------------------------------------------------------------------*/
 
-
-# ifndef PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 //----------------------------------------------------------------------------*/
-//                            Listes chainees                                  */
+//                            Listes chainees                                 */
 //----------------------------------------------------------------------------*/
-#include <stdio.h> //A SUPPRIMER
-#include <stdlib.h>
+# include <stdio.h> //A SUPPRIMER
+# include <stdlib.h>
 
 typedef struct s_list {
 	int	*next;
@@ -37,6 +36,9 @@ void	ft_bzero(void *s, size_t n);
 int		ft_isdigit(int c);
 int		ft_syntax(char *str);
 int		ft_atoi(const char *str);
+t_list	*ft_lstnew(int content);
+char	**ft_argvsplit(int ac, char **av);
+int		ft_ops(char *str);
 //----------------------------------------------------------------------------*/
 //                            FONCTIONS SECURITY                              */
 //----------------------------------------------------------------------------*/

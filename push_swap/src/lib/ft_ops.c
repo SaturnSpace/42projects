@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_syntax.c                                        :+:      :+:    :+:   */
+/*   ft_ops.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 10:04:29 by acarpent          #+#    #+#             */
-/*   Updated: 2024/03/21 11:37:15 by acarpent         ###   ########.fr       */
+/*   Created: 2024/03/21 11:29:31 by acarpent          #+#    #+#             */
+/*   Updated: 2024/03/21 11:42:53 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	ft_syntax(char *str)
+int	ft_ops(char *str)
 {
 	int	i;
 
 	i = 0;
-	printf("%s\n", str);
 	while (str[i])
 	{
-		if (ft_isdigit(str[i]) == 0)
+		if (str[i] == '+' && str[i + 1] == '\0')
 		{
 			printf("Syntax error.");
 			exit(0);
 		}
-		if (str[i] == '+' && str[i + 1] == '+')
+		if ((str[i] == '-' && str[i + 1] == '\0') ||
+			(str[i] == '+' && str[i + 1] == '-'))
 		{
 			printf("Syntax error.");
 			exit(0);
 		}
-		if (str[i] == '-' && str[i + 1] == '-')
+		if (str[i] == '-' && str[i + 1] == '+')
 		{
 			printf("Syntax error.");
 			exit(0);
 		}
-		ft_ops(str);
 		i++;
 	}
 	return (1);
