@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ops.c                                           :+:      :+:    :+:   */
+/*   ft_limit.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 11:29:31 by acarpent          #+#    #+#             */
-/*   Updated: 2024/03/25 13:22:57 by acarpent         ###   ########.fr       */
+/*   Created: 2024/03/25 12:16:37 by acarpent          #+#    #+#             */
+/*   Updated: 2024/03/25 14:38:09 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	ft_ops(char *str)
+void    ft_limit(char *str)
 {
-	int	i;
+    int     nb;
+    char    *tgv;
 
-	i = 0;
-	// ft_limit(ft_atoi(str));
-	while (str[i])
-	{
-		if (str[i] == '+' && str[i + 1] == '\0')
-		{
-			printf("Syntax error.");
-			exit(0);
-		}
-		if ((str[i] == '-' && str[i + 1] == '\0') ||
-			(str[i] == '+' && str[i + 1] == '-'))
-		{
-			printf("Syntax error.");
-			exit(0);
-		}
-		if (str[i] == '-' && str[i + 1] == '+')
-		{
-			printf("Syntax error.");
-			exit(0);
-		}
-		i++;
-	}
-	return (1);
+    nb = ft_atoi(str);
+    tgv = ft_itoa(nb);
+    if (ft_strcmp(str, tgv) == 1)
+    {
+        ft_printf("Trop long.");
+        exit(0);
+    }
 }

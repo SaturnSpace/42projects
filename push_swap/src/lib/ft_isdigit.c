@@ -6,7 +6,7 @@
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:40:50 by acarpent          #+#    #+#             */
-/*   Updated: 2024/03/21 11:28:39 by acarpent         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:47:35 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ int	ft_isdigit(int c)
 		return (1);
 	if (c == '+' || c == '-')
 		return (1);
-	return (0);
+	return (0); 
 }

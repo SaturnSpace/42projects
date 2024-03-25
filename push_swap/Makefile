@@ -6,7 +6,7 @@
 #    By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/16 12:59:08 by acarpent          #+#    #+#              #
-#    Updated: 2024/03/21 11:49:58 by acarpent         ###   ########.fr        #
+#    Updated: 2024/03/25 13:50:30 by acarpent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = cc
 CFLAGS = -g -Wall -Wextra -Werror 
 CPPFLAGS = -I./include
 BUILD = ./build
-PRINTF = ./extern/ft_printf
+PRINTF = ./extern/ft_printf/
 SRC = $(shell find ./src -name '*.c') # A REMPLACER
 OBJ = $(SRC:src/%.c=$(BUILD)/%.o)
 

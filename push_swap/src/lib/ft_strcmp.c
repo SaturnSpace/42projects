@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ops.c                                           :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 11:29:31 by acarpent          #+#    #+#             */
-/*   Updated: 2024/03/25 13:22:57 by acarpent         ###   ########.fr       */
+/*   Created: 2023/11/11 11:54:47 by acarpent          #+#    #+#             */
+/*   Updated: 2024/03/25 13:40:07 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	ft_ops(char *str)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	// ft_limit(ft_atoi(str));
-	while (str[i])
+	while ((s1[i] || s2[i]))
 	{
-		if (str[i] == '+' && str[i + 1] == '\0')
-		{
-			printf("Syntax error.");
-			exit(0);
-		}
-		if ((str[i] == '-' && str[i + 1] == '\0') ||
-			(str[i] == '+' && str[i + 1] == '-'))
-		{
-			printf("Syntax error.");
-			exit(0);
-		}
-		if (str[i] == '-' && str[i + 1] == '+')
-		{
-			printf("Syntax error.");
-			exit(0);
-		}
+		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
-	return (1);
+	return (0);
 }
+/*
+#include <stdio.h>
+
+int	main(int argc, char **argv)
+{
+	(void)argc;
+
+	printf("%d\n", ft_strncmp(argv[1], argv[2], 15));
+
+	return (0);
+}
+*/
