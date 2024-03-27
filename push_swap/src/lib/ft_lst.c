@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lst.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/18 12:19:05 by acarpent          #+#    #+#             */
-/*   Updated: 2024/03/25 14:20:40 by acarpent         ###   ########.fr       */
+/*   Created: 2024/03/27 10:33:27 by acarpent          #+#    #+#             */
+/*   Updated: 2024/03/27 14:16:39 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_stack	*ft_lstlast(t_stack *lst)
+void	ft_lst(t_stack **head, int nb)
 {
-	while (lst)
+	t_stack	*a;
+
+	a = malloc(sizeof(t_stack));
+	if (!a)
+		exit(0);
+	if (!*head) 
 	{
-		if (!lst->next)
-			return (lst);
-		lst = lst->next;
+		*head = a;
 	}
-	return (lst);
+	a->data = nb;
+	a->next = *head;
+	while (a != *head)
+	{
+		printf("noeud = %d\n", a->data);
+	}
 }

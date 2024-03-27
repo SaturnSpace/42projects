@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 11:54:47 by acarpent          #+#    #+#             */
-/*   Updated: 2024/03/25 13:40:07 by acarpent         ###   ########.fr       */
+/*   Updated: 2024/03/27 11:35:21 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,3 @@ int	ft_strcmp(const char *s1, const char *s2)
 	}
 	return (0);
 }
-/*
-#include <stdio.h>
-
-int	main(int argc, char **argv)
-{
-	(void)argc;
-
-	printf("%d\n", ft_strncmp(argv[1], argv[2], 15));
-
-	return (0);
-}
-*/

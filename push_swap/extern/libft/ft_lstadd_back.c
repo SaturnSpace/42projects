@@ -3,24 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acarpent <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:22:43 by acarpent          #+#    #+#             */
-/*   Updated: 2023/11/20 12:24:22 by acarpent         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:21:22 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
-	t_list	*last;
+	t_stack	*last;
 
-	if (!*lst)
-	{
-		*lst = new;
-		return ;
-	}
 	last = ft_lstlast(*lst);
 	last->next = new;
 }

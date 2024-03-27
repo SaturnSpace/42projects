@@ -3,23 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acarpent <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: acarpent <acarpent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:09:49 by acarpent          #+#    #+#             */
-/*   Updated: 2023/11/18 12:13:48 by acarpent         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:12:30 by acarpent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+t_stack	*ft_lstnew(int content)
 {
-	t_list	*elem;
+	t_stack	*elem;
 
-	elem = malloc(sizeof(t_list));
+	elem = malloc(sizeof(t_stack));
 	if (!elem)
 		return (NULL);
-	elem->content = content;
+	elem->data = content;
 	elem->next = NULL;
+	printf("data = %d\n", content);
 	return (elem);
 }
